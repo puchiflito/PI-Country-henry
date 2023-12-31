@@ -5,7 +5,7 @@ const loadDb = require("./src/controllers/loadDb.js");
 const PORT = 3001;
 
 conn
-  .sync({ force: true })
+  .sync()
   .then(() => {
     server.listen(PORT, async () => {
       await loadDb();
