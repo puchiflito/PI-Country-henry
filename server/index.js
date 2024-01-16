@@ -13,3 +13,13 @@ conn
     });
   })
   .catch((error) => console.error(error));
+
+// conn
+//   .sync({ force: true })
+//   .then(async () => {
+//     await loadDb();
+//     server.listen(PORT, () => {
+//       console.log("Servidor en 3001");
+//     });
+//   })
+//   .catch((error) => console.error(error));

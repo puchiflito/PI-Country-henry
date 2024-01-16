@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 
-// const countries = [
-//   "Argentina",
-//   "Brazil",
-//   "Canada",
-//   "Denmark",
-//   "Egypt",
-//   "France",
-//   "Germany",
-//   "India",
-//   "Japan",
-//   "Korea",
-//   "Mexico",
-//   "Netherlands",
-//   "Oman",
-//   "Portugal",
-//   "Qatar",
-//   "Russia",
-//   "Spain",
-//   "Turkey",
-//   "United Kingdom",
-//   "United States",
-//   // ... (añade más países si es necesario)
-// ];
+const countries = [
+  "Argentina",
+  "Brazil",
+  "Canada",
+  "Denmark",
+  "Egypt",
+  "France",
+  "Germany",
+  "India",
+  "Japan",
+  "Korea",
+  "Mexico",
+  "Netherlands",
+  "Oman",
+  "Portugal",
+  "Qatar",
+  "Russia",
+  "Spain",
+  "Turkey",
+  "United Kingdom",
+  "United States",
+  // ... (añade más países si es necesario)
+];
 
 const CountriesList = ({ currentPage, countriesPerPage }) => {
   const indexOfLastCountry = currentPage * countriesPerPage;
@@ -62,7 +62,7 @@ const Pagination = ({ countriesPerPage, totalCountries, paginate }) => {
     </nav>
   );
 };
-const Pruebas = ({ countries }) => {
+const Pruebas = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const countriesPerPage = 5;
 

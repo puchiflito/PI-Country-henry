@@ -1,16 +1,15 @@
 const { Country, Activity } = require("../../db");
-const postAcitities = async (req, res, next) => {
+const postActivities = async (req, res) => {
+  const { name, difficulty, duration, season, countries } = req.body;
+  if (!countries || !name || !difficulty || !duration || !season) {
+    return res.status(415).send("Debe ingresar un pais!!");
+  }
   try {
-    const { name, difficulty, duration, season, countries } = req.body;
-    if (!countries || countries.length === 0) {
-      return res.status(415).send("Debe ingresar un pais!!");
-    }
     const activitiesTrue = await Activity.findOne({
       where: {
         name,
       },
     });
-
     if (activitiesTrue) {
       throw new Error("Ya existe esa actividad");
     }
@@ -21,7 +20,6 @@ const postAcitities = async (req, res, next) => {
       season,
       countries,
     });
-
     const realtionTable = await createAcitivity.addCountries(countries);
     res.send(realtionTable);
   } catch (error) {
@@ -29,4 +27,21 @@ const postAcitities = async (req, res, next) => {
   }
 };
 
-module.exports = postAcitities;
+module.exports = postActivities;
+
+// const { name, difficulty, duration, season, countries } = req.body;
+// if (!countries || !name || !difficulty || !duration || !season) {
+//   return res.status(415).send("Debe ingresar un pais!!");
+// }
+// let [activitiesTrue, createAcitivity] = await Activity.findOrCreate({
+//   where: { name },
+//   defaults: { name, difficulty, duration, season, countries },
+// });
+// if (!createAcitivity) {
+//   return res.status(409).json({ message: "No se creo" });
+// }
+// const buscarPais = await Country.findAll({
+//   where: { name: countries },
+// });
+// await activitiesTrue.setCountries(buscarPais);
+// res.status(200).json(activitiesTrue);

@@ -41,7 +41,7 @@ const countyId = (id) => {
 const countryName = (name) => {
   return async (dispatch) => {
     try {
-      const res = await fetch(`${urlCountries}?name=${name}`);
+      const res = await fetch(`${urlCountries}/name?name=${name}`);
       const data = await res.json();
       dispatch({ type: COUNTRYNAME, payload: data });
     } catch (error) {

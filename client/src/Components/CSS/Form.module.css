@@ -1,0 +1,91 @@
+.container {
+  width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 10px;
+}
+
+.container .h3 {
+  background-color: #333;
+  padding: 16px;
+  text-align: center;
+}
+
+.container .h3 {
+  margin: 0;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+}
+.error_message {
+  color: rgb(220, 7, 7);
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 500;
+  text-align: left;
+  max-height: 20px;
+  overflow: hidden;
+}
+
+.form {
+  padding: 16px;
+  background-color: white;
+}
+
+.form_input {
+  margin-bottom: 10px;
+}
+
+.form_input label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 1px;
+}
+
+.form_input input[type="text"],
+.form_input select[name="difficulty"],
+.form_input select[name="duration"],
+.form_input select[name="season"],
+.form_input select[name="countries"] {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn {
+  padding: 12px 24px;
+  margin-left: 13px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #333;
+  color: #fff;
+  text-transform: uppercase;
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.img {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.img .country {
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 15%;
+}
+.img img {
+  width: 150px;
+  border: 1px solid black;
+}
+.img h2 {
+  color: black;
+}
