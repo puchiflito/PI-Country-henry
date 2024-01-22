@@ -1,3 +1,10 @@
 .body {
-  color: black;
+  color: white;
+  background-color: rgb(88, 82, 82);
+  border-radius: 5%;
+  border: 0.75rem solid black;
+}
+
+.body h3 {
+  color: white;
 }

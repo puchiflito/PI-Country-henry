@@ -21,10 +21,10 @@ const Form = () => {
     season: "",
     countries: [],
   });
-  // es para lo errores
+
   const [error, setError] = useState({});
-  // estado para los paises seleccionados
-  const [selectedCountries, setSelectedCountries] = useState([]); // estado para los paises seleccionados
+
+  const [selectedCountries, setSelectedCountries] = useState([]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -36,20 +36,6 @@ const Form = () => {
   const handleCountrySelect = (event) => {
     const countrySelect = event.target.value;
 
-    // Verificar si el país ya ha sido seleccionado y si se sobrepasa de 6 paises
-    if (selectedCountries.includes(countrySelect)) {
-      return {
-        text: "This country is already selected...",
-      };
-    }
-
-    if (selectedCountries.length >= 6) {
-      return {
-        text: "Only 6 countries please!",
-      };
-    }
-
-    // Agregar el país seleccionado a la lista de países seleccionados
     setSelectedCountries([...selectedCountries, countrySelect]);
 
     setnewActivity({
@@ -68,13 +54,6 @@ const Form = () => {
       countries: newActivity.countries.filter((c) => c !== country),
     });
   };
-
-  // const disabled =
-  //   newActivity.name === "" ||
-  //   newActivity.difficulty === "" ||
-  //   newActivity.duration === "" ||
-  //   newActivity.season === "" ||
-  //   newActivity.countries.length === 0;
 
   const compareCountries = (a, b) => {
     if (a.name < b.name) return -1;
@@ -95,11 +74,13 @@ const Form = () => {
         season: "",
         countries: [],
       });
+      setSelectedCountries([]);
       alert("Actividad creada");
     } catch (error) {
       console.log("ERROR:  ", error);
     }
 
+    //
     // axios
     //   .post(`http://localhost:3001/activities`, newActivity, {
     //     headers: {

@@ -11,10 +11,8 @@ import {
   RESET_FILTER,
 } from "../Actions/actions";
 const initialState = {
-  // dejamos como el arreglo original
   allCountries: [],
   allActivities: [],
-  // usamos para modificarlo, por ordenar, por nombre, etc
   countries: [],
   country: [],
 };
@@ -51,10 +49,10 @@ const reducer = (state = initialState, action) => {
       const { continent } = action.payload;
       const all_countries = state.allCountries;
       // si desde ell front elijen esta opcion
-      if (continent === "All Continents") {
+      if (continent && continent !== "All Continents") {
         return { ...state, countries: all_countries };
       } else {
-        const filter = all_countries.filter((c) => c.continent === continet);
+        const filter = all_countries.filter((c) => c.continent === continent);
         return { ...state, counntries: filter };
       }
     case FILTER_ACTIVITY:
@@ -73,21 +71,17 @@ const reducer = (state = initialState, action) => {
     case ORDER_NAME:
       const order = payload === "from A to Z" ? 1 : -1;
 
-      // Realizamos una copia del array original de países
-      // Esto garantiza que no modificamos el estado original directamente y trabajamos sobre una copia
       const orderName = [...state.countries].sort((a, b) => {
         const nameA = a.name.toUpperCase();
         const nameB = b.name.toUpperCase();
 
         if (nameA < nameB) {
           return -1 * order;
-          // Si a viene antes que b, devolvemos -1 para que a se ubique antes que b (orden ascendente) o después que b (orden descendente)
         }
         if (nameA > nameB) {
           return 1 * order;
-          // Si a viene después que b, devolvemos 1 para que a se ubique después de b (orden ascendente) o antes que b (orden descendente)
         }
-        return 0; // Si los nombres son iguales, no se cambia el orden
+        return 0;
       });
 
       return {

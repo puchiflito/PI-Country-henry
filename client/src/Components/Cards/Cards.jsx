@@ -39,7 +39,7 @@ const Cards = ({ nCountries }) => {
       <div className={style.divHijo}>
         {nCountries.map((country) => (
           <Card
-            key={country.id} // Asegúrate de tener una propiedad única para la clave (key) al utilizar map.
+            key={country.id}
             id={country.id}
             name={country.name}
             image={country.image}

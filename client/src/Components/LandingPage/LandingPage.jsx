@@ -5,8 +5,8 @@ const LandingPage = () => {
     <div className={style.body}>
       <h1>Bienvenido a la APP de Paises</h1>
       <h3>
-        Aqui podras crear, buscar y guardar en la seccion de favoritos los
-        paises que mas te gusten
+        Aqui podras buscar los paises que te gustan, podras crear y guardar las
+        actividades que realizaste
       </h3>
       <Link to="/home">
         <button>Ingresar</button>
